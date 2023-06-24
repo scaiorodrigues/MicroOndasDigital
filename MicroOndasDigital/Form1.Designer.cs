@@ -78,7 +78,7 @@
             txtPotencia.ScrollBars = ScrollBars.Horizontal;
             txtPotencia.Size = new Size(180, 27);
             txtPotencia.TabIndex = 2;
-            txtPotencia.TextAlign = HorizontalAlignment.Center;
+            txtPotencia.TextAlign = HorizontalAlignment.Right;
             txtPotencia.TextChanged += txtPotencia_TextChanged;
             // 
             // label1
@@ -243,6 +243,7 @@
             btnPotencia.TabIndex = 11;
             btnPotencia.Text = "Potência";
             btnPotencia.UseVisualStyleBackColor = true;
+            btnPotencia.Click += btnPotencia_Click;
             // 
             // btnCancela
             // 
@@ -251,7 +252,7 @@
             btnCancela.Name = "btnCancela";
             btnCancela.Size = new Size(80, 50);
             btnCancela.TabIndex = 13;
-            btnCancela.Text = "CANCELA\r\nPAUSA";
+            btnCancela.Text = " PAUSAR \r\ncancelar";
             btnCancela.UseVisualStyleBackColor = true;
             btnCancela.Click += btnCancela_Click;
             // 

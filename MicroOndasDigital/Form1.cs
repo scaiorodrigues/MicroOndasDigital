@@ -5,15 +5,11 @@ namespace MicroOndasDigital
         int tempo = 0;
         int minuto = 0;
         int segundo = 0;
+        int potencia = 10;
 
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -73,52 +69,82 @@ namespace MicroOndasDigital
 
         private void txtPotencia_TextChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            segundo--;
-            if (minuto > 0)
+            if (minuto == 0 && segundo == 0)
             {
-                if (segundo < 0)
+                timer1.Enabled = false;
+                txtDisplay.Text = "0";
+                txtPotencia.Text = "Aquecimento Concluído";
+                return;
+            }
+            segundo--;
+            if (segundo < 0)
+            {
+                if (minuto > 0)
                 {
                     segundo = 59;
                     minuto--;
                 }
+                else
+                {
+                    timer1.Enabled = false;
+                    return;
+                }
             }
-            txtDisplay.Text = "" + minuto + ":" + segundo;
-            if(minuto == 0 && segundo == 0)
+            string stringAquecimento = "";
+            for (int i = 0; i < potencia; i++)
             {
-                timer1.Enabled = false;             
+                stringAquecimento += ".";
             }
+            txtDisplay.Text = $"{minuto:D2}:{segundo:D2}";
+            txtPotencia.Text = stringAquecimento + " - POTENCIA: " + potencia;
         }
-
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            tempo = Convert.ToInt32(txtDisplay.Text);
-            if (tempo < 1)
+            if (timer1.Enabled)
             {
-                txtDisplay.Text = "0";
-                txtPotencia.Text = "Incerir tempo maior que 1 segundos.";           
-            }
-            else if (tempo > 120)
-            {
-                txtDisplay.Text = "0";
-                txtPotencia.Text = "Incerir tempo menor que 2 minutos.";
-            }
-            else if (tempo >= 60)
-            {
+                tempo += 30;
                 minuto = tempo / 60;
                 segundo = tempo % 60;
+                txtDisplay.Text = $"{minuto:D2}:{segundo:D2}";
             }
             else
             {
-                minuto = 0;
-                segundo = tempo;
+
+                tempo = Convert.ToInt32(txtDisplay.Text);
+                if (tempo < 1)
+                {
+                    txtDisplay.Text = "0";
+                    txtPotencia.Text = "Incerir tempo maior que 1 segundos.";
+                    timer1.Enabled = false;
+                    txtDisplay.Text = "0";
+                    tempo = 0;
+                    minuto = 0;
+                    segundo = 0;
+                }
+                else if (tempo > 120)
+                {
+                    txtDisplay.Text = "0";
+                    txtPotencia.Text = "Incerir tempo menor que 2 minutos.";
+                    timer1.Enabled = false;
+                    txtDisplay.Text = "0";
+                    tempo = 0;
+                    minuto = 0;
+                    segundo = 0;
+                }
+                else
+                {
+                    minuto = tempo / 60;
+                    segundo = tempo % 60;
+                    txtDisplay.Text = $"{minuto:D2}:{segundo:D2}";
+                    txtPotencia.Text = "";
+                    timer1.Enabled = true;
+                }
             }
-            txtDisplay.Text = 0 + minuto + ":" + segundo;
-            timer1.Enabled = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -158,11 +184,30 @@ namespace MicroOndasDigital
 
         private void btnCancela_Click(object sender, EventArgs e)
         {
+            if (timer1.Enabled)
+            {
+                timer1.Enabled = false;
+                txtPotencia.Text = "PAUSADO";
+            }
+            else
+            {
             tempo = 0;
             minuto = 0;
             segundo = 0;
-
+            txtDisplay.Text = "";
+            txtPotencia.Text = "";
             timer1.Enabled = false;
+            }
+        }
+
+        private void btnPotencia_Click(object sender, EventArgs e)
+        {
+            potencia++;
+            if (potencia > 10)
+                potencia = 1;
+
+            string potenciaText = $"POTENCIA {potencia}";
+            txtPotencia.Text = potenciaText;
         }
     }
 }
