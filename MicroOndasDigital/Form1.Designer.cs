@@ -50,6 +50,12 @@
             groupBox2 = new GroupBox();
             btnInicio = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
+            btnBoi = new Button();
+            btnLeite = new Button();
+            btnPipoca = new Button();
+            btnFrango = new Button();
+            btnFeijao = new Button();
+            btnCustom = new Button();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -70,13 +76,13 @@
             // txtPotencia
             // 
             txtPotencia.BackColor = Color.Black;
-            txtPotencia.Font = new Font("DS-Digital", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPotencia.Font = new Font("DS-Digital", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             txtPotencia.ForeColor = Color.Lime;
-            txtPotencia.Location = new Point(9, 110);
+            txtPotencia.Location = new Point(9, 112);
             txtPotencia.Name = "txtPotencia";
             txtPotencia.ReadOnly = true;
             txtPotencia.ScrollBars = ScrollBars.Horizontal;
-            txtPotencia.Size = new Size(180, 27);
+            txtPotencia.Size = new Size(180, 24);
             txtPotencia.TabIndex = 2;
             txtPotencia.TextAlign = HorizontalAlignment.Right;
             txtPotencia.TextChanged += txtPotencia_TextChanged;
@@ -216,7 +222,7 @@
             groupBox1.Controls.Add(button8);
             groupBox1.Controls.Add(button6);
             groupBox1.Controls.Add(button7);
-            groupBox1.Location = new Point(71, 215);
+            groupBox1.Location = new Point(71, 318);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(200, 220);
             groupBox1.TabIndex = 11;
@@ -260,7 +266,7 @@
             // 
             groupBox2.Controls.Add(btnInicio);
             groupBox2.Controls.Add(btnCancela);
-            groupBox2.Location = new Point(71, 434);
+            groupBox2.Location = new Point(71, 537);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(200, 70);
             groupBox2.TabIndex = 14;
@@ -283,11 +289,77 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick_1;
             // 
+            // btnBoi
+            // 
+            btnBoi.Location = new Point(200, 220);
+            btnBoi.Name = "btnBoi";
+            btnBoi.Size = new Size(65, 50);
+            btnBoi.TabIndex = 17;
+            btnBoi.Text = "Boi";
+            btnBoi.UseVisualStyleBackColor = true;
+            btnBoi.Click += button10_Click;
+            // 
+            // btnLeite
+            // 
+            btnLeite.Location = new Point(136, 220);
+            btnLeite.Name = "btnLeite";
+            btnLeite.Size = new Size(65, 50);
+            btnLeite.TabIndex = 16;
+            btnLeite.Text = "Leite";
+            btnLeite.UseVisualStyleBackColor = true;
+            btnLeite.Click += btnLeite_Click;
+            // 
+            // btnPipoca
+            // 
+            btnPipoca.Location = new Point(72, 220);
+            btnPipoca.Name = "btnPipoca";
+            btnPipoca.Size = new Size(65, 50);
+            btnPipoca.TabIndex = 15;
+            btnPipoca.Text = "Pipoca";
+            btnPipoca.UseVisualStyleBackColor = true;
+            btnPipoca.Click += button12_Click_1;
+            // 
+            // btnFrango
+            // 
+            btnFrango.Location = new Point(72, 269);
+            btnFrango.Name = "btnFrango";
+            btnFrango.Size = new Size(65, 50);
+            btnFrango.TabIndex = 20;
+            btnFrango.Text = "Frango";
+            btnFrango.UseVisualStyleBackColor = true;
+            btnFrango.Click += btnFrango_Click;
+            // 
+            // btnFeijao
+            // 
+            btnFeijao.Location = new Point(136, 269);
+            btnFeijao.Name = "btnFeijao";
+            btnFeijao.Size = new Size(65, 50);
+            btnFeijao.TabIndex = 19;
+            btnFeijao.Text = "Feijão";
+            btnFeijao.UseVisualStyleBackColor = true;
+            btnFeijao.Click += btnFeijao_Click;
+            // 
+            // btnCustom
+            // 
+            btnCustom.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCustom.Location = new Point(200, 269);
+            btnCustom.Name = "btnCustom";
+            btnCustom.Size = new Size(65, 50);
+            btnCustom.TabIndex = 18;
+            btnCustom.Text = "Custom";
+            btnCustom.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(326, 612);
+            ClientSize = new Size(337, 715);
+            Controls.Add(btnBoi);
+            Controls.Add(btnLeite);
+            Controls.Add(btnPipoca);
+            Controls.Add(btnFrango);
+            Controls.Add(btnFeijao);
+            Controls.Add(btnCustom);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
@@ -325,5 +397,11 @@
         private GroupBox groupBox2;
         private Button btnInicio;
         private System.Windows.Forms.Timer timer1;
+        private Button btnBoi;
+        private Button btnLeite;
+        private Button btnPipoca;
+        private Button btnFrango;
+        private Button btnFeijao;
+        private Button btnCustom;
     }
 }
