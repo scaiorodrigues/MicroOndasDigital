@@ -1,3 +1,7 @@
+using Microsoft.Data.SqlClient;
+using System.Data;
+using System.Diagnostics.Metrics;
+
 namespace MicroOndasDigital
 {
     public partial class Form1 : Form
@@ -11,6 +15,7 @@ namespace MicroOndasDigital
         string totalPonto;
         string instru;
         bool aquecimentoPausado = false;
+        private object command;
 
         public Form1()
         {
@@ -250,7 +255,7 @@ namespace MicroOndasDigital
                 timer1.Start();
 
                 btnInicio.Enabled = false;
-                btnPotencia.Enabled = false;                
+                btnPotencia.Enabled = false;
             }
         }
 
@@ -326,6 +331,19 @@ namespace MicroOndasDigital
 
             btnInicio.Enabled = false;
             btnPotencia.Enabled = false;
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+            string connectionString = @"Server=DESKTOP-4F8NSO0\TEW_SQLEXPRESS;Database=myDataBase;Trusted_Connection=True;";            
+            var cn = new SqlConnection(connectionString);
+
+            cn.Open();
+            MessageBox.Show("Conexão :" + cn.State);
+
+            cn.Close();
+            MessageBox.Show("Conexão :" + cn.State);
+
         }
     }
 }

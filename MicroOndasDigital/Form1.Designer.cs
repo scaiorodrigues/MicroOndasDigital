@@ -44,7 +44,6 @@
             button9 = new Button();
             button0 = new Button();
             groupBox1 = new GroupBox();
-            btnGravar = new Button();
             btnPotencia = new Button();
             btnCancela = new Button();
             groupBox2 = new GroupBox();
@@ -56,6 +55,7 @@
             btnFrango = new Button();
             btnFeijao = new Button();
             btnCustom = new Button();
+            btnGravar = new Button();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -229,17 +229,6 @@
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
             // 
-            // btnGravar
-            // 
-            btnGravar.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGravar.Location = new Point(4, 163);
-            btnGravar.Name = "btnGravar";
-            btnGravar.Size = new Size(65, 50);
-            btnGravar.TabIndex = 12;
-            btnGravar.Text = "Gravar";
-            btnGravar.UseVisualStyleBackColor = true;
-            btnGravar.Click += button12_Click;
-            // 
             // btnPotencia
             // 
             btnPotencia.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -349,6 +338,16 @@
             btnCustom.Text = "Custom";
             btnCustom.UseVisualStyleBackColor = true;
             // 
+            // btnGravar
+            // 
+            btnGravar.Location = new Point(4, 163);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new Size(65, 50);
+            btnGravar.TabIndex = 12;
+            btnGravar.Text = "Gravar";
+            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += button10_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -391,7 +390,6 @@
         private GroupBox groupBox1;
         private Label label1;
         private TextBox txtPotencia;
-        private Button btnGravar;
         private Button btnPotencia;
         private Button btnCancela;
         private GroupBox groupBox2;
@@ -403,5 +401,6 @@
         private Button btnFrango;
         private Button btnFeijao;
         private Button btnCustom;
+        private Button btnGravar;
     }
 }
